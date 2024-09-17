@@ -306,6 +306,14 @@ function st.max(c, b, r, k) -- max buy
 	return max, cost, nextCost
 end
 
+function st.Percent(val1, val2)
+	local div = st.div(val1, val2)
+	local mul = st.mul(div, 100)
+	if st.meeq(div, 1) then return '100%' end
+	if st.leeq(div, 1e-5) then return '0%' end
+	return st.toNumber(mul) .. '%'
+end
+
 function st.NumberFloor(val1: number): number -- floors it down to nearest number with 2 decimal places ex. 1.48948949 to 1.5 or 1.438979797987 to 1.45
 	return (val1*100+0.001-(val1*100+0.001)%1)/100
 end
